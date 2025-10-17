@@ -1,73 +1,24 @@
-# Welcome to your Lovable project
+# Grupo Pluma Mapa
 
-## Project info
+Aplicação web para visualização de unidades, cidades de investimento e planejamento de rotas no estado do Paraná, com persistência local de dados (IndexedDB/Dexie) e visualização em mapa (Leaflet).
 
-**URL**: https://lovable.dev/projects/f2907f72-1333-44a8-832a-ec4a067ca46e
+## Funcionalidades
 
-## How can I edit this code?
+- Visualização de unidades no mapa, com cores por empresa (`PLUMA`, `BELLO`, `LEVO`).
+- Destaque de cidades de investimento com marcadores dinâmicos (reduzem de tamanho em zoom alto para evitar sobreposição).
+- Planejamento de rotas:
+  - Preferência por rotas via OSRM (rede viária real).
+  - Fallback automático Haversine (linha reta) quando OSRM falhar.
+  - Desenho da rota em azul (OSRM) ou verde tracejado (Haversine), com ajuste automático do mapa para englobar toda a rota.
+- Persistência local (IndexedDB/Dexie) de:
+  - Unidades (com coordenadas, dados da empresa, endereço).
+  - Rotas calculadas (pontos, geometria, tipo, distância e duração).
+  - Cidades de investimento selecionadas.
+  - Desenhos e catálogos (CNPJs).
+- Migração automática do `localStorage` para IndexedDB na primeira execução.
+- Interface responsiva com tema claro/escuro.
 
-There are several ways of editing your application.
+## Requisitos
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/f2907f72-1333-44a8-832a-ec4a067ca46e) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f2907f72-1333-44a8-832a-ec4a067ca46e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Node.js 18+ e npm.
+- OS: Windows, macOS ou Linux (desenvolvimento local usa `npm`).
