@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 222 47% 11%;
+
+    --radius: 0.5rem;
+
+    /* Company colors */
+    --pluma: 142 71% 45%;
+    --pluma-foreground: 0 0% 100%;
+    
+    --bello: 217 91% 60%;
+    --bello-foreground: 0 0% 100%;
+    
+    --levo: 271 81% 56%;
+    --levo-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --status-ok: 142 71% 45%;
+    --status-warning: 45 93% 47%;
+    --status-error: 0 84% 60%;
+    --status-revisar: 280 61% 50%;
+
+    /* Map specific */
+    --map-bg: 200 15% 96%;
+    --map-border: 220 13% 85%;
+    --spotlight: 217 91% 60%;
+    --pr-highlight: 217 91% 60%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 27% 84%;
+
+    /* Company colors (same in dark) */
+    --pluma: 142 71% 45%;
+    --pluma-foreground: 0 0% 100%;
+    
+    --bello: 217 91% 60%;
+    --bello-foreground: 0 0% 100%;
+    
+    --levo: 271 81% 56%;
+    --levo-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --status-ok: 142 71% 45%;
+    --status-warning: 45 93% 47%;
+    --status-error: 0 84% 60%;
+    --status-revisar: 280 61% 50%;
+
+    /* Map specific */
+    --map-bg: 220 13% 15%;
+    --map-border: 217 33% 20%;
+    --spotlight: 217 91% 60%;
+    --pr-highlight: 217 91% 70%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Minimal map styles - hide POI icons and unnecessary elements */
+.minimal-map-tiles {
+  /* Filter to make map more minimal by reducing contrast of non-essential elements */
+  filter: contrast(0.9) saturate(0.8);
+}
+
+/* Hide POI icons and symbols that are not roads or city names */
+.leaflet-tile-pane img {
+  /* Apply CSS filter to reduce visibility of POI icons */
+  filter: contrast(1.1) brightness(1.05);
+}
+
+/* Ensure text labels for roads and cities remain visible */
+.leaflet-overlay-pane {
+  /* Keep overlay elements (like our markers) fully visible */
+  filter: none !important;
+}
